@@ -1,0 +1,199 @@
+{
+	"id": "ed051708-e77d-405d-a426-b7f0ee2d361a",
+	"name": "bpnodets",
+	"description": "",
+	"auth": null,
+	"events": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "439438ad-5453-4607-b210-959b5066a23a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "12972775-d73c-4256-9515-3ca634412a64",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variables": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:4000",
+			"type": "text",
+			"disabled": false,
+			"description": ""
+		}
+	],
+	"order": [
+		"1b291d1a-366c-4593-8fed-d6e688706caf",
+		"4d053f59-1146-40c3-ba5d-78e85d3da680",
+		"546e5a61-8b99-4f18-bbf8-b73d56431725",
+		"4f3e12a4-2258-452a-81aa-30db9df15090"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "1b291d1a-366c-4593-8fed-d6e688706caf",
+			"name": "{{BASE_URL}}/api/v1/authenticate",
+			"url": "{{BASE_URL}}/api/v1/authenticate",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\n\"email\": \"jacanepa@gmail.com\",\n\"password\": \"123456\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "4d053f59-1146-40c3-ba5d-78e85d3da680",
+			"name": "{{BASE_URL}}/api/v1/users",
+			"url": "{{BASE_URL}}/api/v1/users",
+			"description": "",
+			"data": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiamFjYW5lcGFAZ21haWwuY29tIiwiaWF0IjoxNTY0MjU2OTUwLCJleHAiOjE1NjU0NjY1NTB9.pc4-bjhXKzyWrj307CXYqY5FGUQV88LQabrivynYyZs",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\nauthorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiamFjYW5lcGFAZ21haWwuY29tIiwiaWF0IjoxNTY0MjU2OTUwLCJleHAiOjE1NjU0NjY1NTB9.pc4-bjhXKzyWrj307CXYqY5FGUQV88LQabrivynYyZs\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "4f3e12a4-2258-452a-81aa-30db9df15090",
+			"name": "{{BASE_URL}}/api/v1/users/6",
+			"url": "{{BASE_URL}}/api/v1/users/6",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiamFjYW5lcGFAZ21haWwuY29tIiwiaWF0IjoxNTY0MjU2OTUwLCJleHAiOjE1NjU0NjY1NTB9.pc4-bjhXKzyWrj307CXYqY5FGUQV88LQabrivynYyZs",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\n\"email\":\"montenegrogerson@gmail.com\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiamFjYW5lcGFAZ21haWwuY29tIiwiaWF0IjoxNTY0MjU2OTUwLCJleHAiOjE1NjU0NjY1NTB9.pc4-bjhXKzyWrj307CXYqY5FGUQV88LQabrivynYyZs\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "546e5a61-8b99-4f18-bbf8-b73d56431725",
+			"name": "{{BASE_URL}}/api/v1/users",
+			"url": "{{BASE_URL}}/api/v1/users",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiamFjYW5lcGFAZ21haWwuY29tIiwiaWF0IjoxNTY0MjU2OTUwLCJleHAiOjE1NjU0NjY1NTB9.pc4-bjhXKzyWrj307CXYqY5FGUQV88LQabrivynYyZs",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\n\"firstName\":\"Test\",\n\"lastName\":\"Test\",\n\"birth\":\"\",\n\"email\":\"\",\n\"password\":\"\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiamFjYW5lcGFAZ21haWwuY29tIiwiaWF0IjoxNTY0MjU2OTUwLCJleHAiOjE1NjU0NjY1NTB9.pc4-bjhXKzyWrj307CXYqY5FGUQV88LQabrivynYyZs\n",
+			"pathVariables": {}
+		}
+	]
+}
