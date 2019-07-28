@@ -36,7 +36,7 @@ const authenticate = async (req: any, res: any) => {
 
 const users = async (req: any, res: any) => {
     const { itemsPerPage, page } = req.query;
-    let paginate = { itemsPerPage: 10, page: 1};
+    let paginate = { itemsPerPage: 10, page: 0};
     if (itemsPerPage) paginate = { ...paginate, itemsPerPage };
     if (page)  paginate = { ...paginate, page };
     const users = await userDao.getUsers(paginate);

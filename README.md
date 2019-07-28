@@ -1,6 +1,6 @@
 # bpNodeTs
 
-This boilerplate has the purpose of being taken as a reference for the creation of projects with NodeJS, express, typeORM, have all the configuration of the basic cases in any application such as the configuration of typeORM, express, auth 2.0 and the structure of folders with an organization of controllers, models, routes, environments, configuration and tests.
+This boilerplate has the purpose of being taken as a reference for the creation of projects with typescript, NodeJS, express, typeORM, have all the configuration of the basic cases in any application such as the configuration of typeORM, express, auth 2.0 and the structure of folders with an organization of controllers, models, routes, environments, configuration and tests.
 
 I would appreciate any comments, the idea is to improve it and contribute to the community.
 
@@ -18,6 +18,18 @@ src | app main structure, folders: app, entity, features, helpers, migration, ro
 src/app | express settings
 src/entity | typeORM entities
 src/features | application functionalities, users that is something basic for any project.
+src/features/users | user functionalities
+src/features/users/controllers | controllers action encapsulation
+src/features/users/dao | data access object, typeorm repository objects
 helpers | utilities used by any module of the application
 migration | used migrators with typeorm.
 routes | configuration of application paths.
+
+#App Installation
+
+1. Download code from ropsitory 
+2. install dependencies: npm install | yarn
+
+#Run app
+
+* yarn start | npm run start 

@@ -1,3 +1,4 @@
+import * as crypto from 'crypto';
 import { getManager, UpdateResult, DeleteResult } from 'typeorm';
 import { User } from '../../../entity/User';
 
@@ -6,7 +7,10 @@ export default class UserDao {
         return getManager().getRepository(User).save(user);
     }
     async isUserValid(email: string, password: string) {
-       const user = await getManager().getRepository(User).findOne({ email, password });
+       const shasum = crypto.createHash('sha1');
+       shasum.update(password);
+       const passwordCrypted = shasum.digest('hex');
+       const user = await getManager().getRepository(User).findOne({ email, password: passwordCrypted });
        return (user !== undefined);
     }
     getUsers({ itemsPerPage, page }): Promise<User[]> {
