@@ -25,11 +25,11 @@ helpers | utilities used by any module of the application
 migration | used migrators with typeorm.
 routes | configuration of application paths.
 
-#App Installation
+# App Installation
 
 1. Download code from ropsitory 
 2. install dependencies: npm install | yarn
 
-#Run app
+# Run app
 
 * yarn start | npm run start 
