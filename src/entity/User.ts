@@ -10,7 +10,6 @@ import * as crypto from 'crypto';
 import { IsEmail, Length, IsDate } from 'class-validator';
 import {Group} from "./Group";
 
-const shasum = crypto.createHash('sha1');
 
 @Entity()
 export class User {
@@ -47,6 +46,7 @@ export class User {
     group: Group;
 
     hashPassword() {
+        const shasum = crypto.createHash('sha1');
         shasum.update(this.password);
         this.password = shasum.digest('hex');
     }    

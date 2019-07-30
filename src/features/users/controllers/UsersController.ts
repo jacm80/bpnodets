@@ -1,7 +1,6 @@
 import * as dotenv from 'dotenv';
 import * as moment from 'moment';
 import * as jwt  from  'jwt-simple';
-// import * as crypto from 'crypto';
 import {Request, Response} from "express";
 
 import { User } from "../../../entity/User";
@@ -50,14 +49,12 @@ const users = async (req: Request, res: Response) => {
 const createUser = async (req: Request, res: Response) => {
     const { firstName, lastName, birth, email, password } = req.body;
     try {
-        // const shasum = crypto.createHash('sha1');
         const newUser = new User();
         newUser.firstName = firstName;
         newUser.lastName = lastName;
         newUser.birth = birth;
         newUser.email = email;
-        // shasum.update(password);
-        // newUser.password = shasum.digest('hex');
+        newUser.password = password;
         newUser.hashPassword();
         await userDao.createUser(newUser);
         res.status(201)

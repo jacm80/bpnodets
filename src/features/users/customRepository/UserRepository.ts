@@ -1,9 +1,12 @@
 import * as crypto from 'crypto';
 import { getManager, UpdateResult, DeleteResult } from 'typeorm';
 import { User } from '../../../entity/User';
+import { Group} from '../../../entity/Group';
 
 export default class UserDao {
-    createUser(user: User): Promise<User> {
+    async createUser(user): Promise<User> {
+        const defaultGroup = await getManager().getRepository(Group).find({ where: { description: 'user' }});
+        user.group = defaultGroup;
         return getManager().getRepository(User).save(user);
     }
     async isUserValid(email: string, password: string) {
