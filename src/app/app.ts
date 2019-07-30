@@ -6,17 +6,17 @@ import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
-import ensureAuthenticated from '../helpers/jwtToken';
+import ensureAuthenticated from '../middlewares/jwtToken';
 import router from '../routes/v1';
 // import {User} from "../../src/entity/User";
 dotenv.config();
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const cfg = require(`../../config/${NODE_ENV}`);
+const NODE_ENV: string = process.env.NODE_ENV || 'development';
+const cfg: any = require(`../../config/${NODE_ENV}`);
 
 const app: express.Application = express();
 
-const port = cfg.port;
+const port: Number = cfg.port;
 
 app.use(express.static('public'));
 app.use(helmet());
@@ -29,9 +29,7 @@ app.use(ensureAuthenticated);
 app.use(router);
 
 const server = http.createServer(app);
-
 // typorm connection
-
 createConnection().then(async connection => {
 	// console.log("Inserting a new user into the database...");
     // const user = new User();
@@ -46,10 +44,10 @@ createConnection().then(async connection => {
     // const users = await connection.manager.find(User);
     // console.log("Loaded users: ", users);
     // console.log("Here you can setup and run express/koa/any other framework.");
+    server.listen(port, () => {
+        console.log('NODE_ENV:', NODE_ENV);
+        console.log('API Server is listening on port:', port);
+    });    
 }).catch(error => console.log(error));
 
-server.listen(port, () => {
-	console.log('NODE_ENV:', NODE_ENV);
-	console.log('API Server is listening on port:', port);
-});
 

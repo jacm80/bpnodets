@@ -11,7 +11,7 @@ export default class UserDao {
        shasum.update(password);
        const passwordCrypted = shasum.digest('hex');
        const user = await getManager().getRepository(User).findOne({ email, password: passwordCrypted });
-       return (user !== undefined);
+       return user;
     }
     getUsers({ itemsPerPage, page }): Promise<User[]> {
         return getManager()
@@ -31,11 +31,7 @@ export default class UserDao {
             .getMany()
     }
     getUser(idUser: number): Promise<User> {
-        return getManager().getRepository(User).findOne({
-            where: {
-                id: idUser
-            }
-        })
+        return getManager().getRepository(User).findOne({ where: { id: idUser }, relations: ['group'] })
     }
     updateUser(idUser: number, data: User): Promise<UpdateResult> {
         return getManager().getRepository(User).update({ id: idUser}, data);

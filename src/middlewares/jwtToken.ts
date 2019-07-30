@@ -1,10 +1,11 @@
 import * as moment from 'moment';
 import * as jwt from 'jwt-simple';
 import * as dotenv from 'dotenv';
+import { Request, Response, NextFunction } from "express";
 
 dotenv.config();
 
-const ensureAuthenticated = (req: any, res: any, next: any) => {
+const ensureAuthenticated = (req: Request, res: Response, next: NextFunction) => {
 	try {
 		if (req.path === '/api/v1/authenticate') return next();
 		const { headers: { authorization } } = req;
