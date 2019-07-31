@@ -25,7 +25,5 @@
    },
    "scripts": {
       "start": "ts-node src/app/app.ts",
-      "prod": "yarn clean && tsc && node ./build/app/app.js",
-      "clean": "rm -rf build"
    }
 }

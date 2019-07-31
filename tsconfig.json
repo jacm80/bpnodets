@@ -13,27 +13,3 @@
       "sourceMap": true
    }
 }
-
-/*
-{
-	"compilerOptions": {
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
-		"esModuleInterop": true,
-		"noImplicitAny": true,
-		"noImplicitReturns": true,
-		"noImplicitThis": true,
-		"strict": true,
-		"module": "commonjs",
-		"pretty": true,
-		"outDir": "dist",
-		"sourceMap": true,
-		"target": "es6",
-		"allowJs": true,
-		"baseUrl": ".",
-	},
-	"exclude": [
-		"node_modules"
-	]
-}
-*/
