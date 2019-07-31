@@ -8,8 +8,8 @@ import {
 } from "typeorm";
 import * as crypto from 'crypto';
 import { IsEmail, Length, IsDate } from 'class-validator';
-import {Group} from "./Group";
 
+import { Group } from "./Group";
 
 @Entity()
 export class User {
@@ -49,6 +49,5 @@ export class User {
         const shasum = crypto.createHash('sha1');
         shasum.update(this.password);
         this.password = shasum.digest('hex');
-    }    
-
+    }
 }

@@ -1,6 +1,9 @@
 {
    "compilerOptions": {
-      "lib": [ "es5", "es6", "dom" ],
+      "lib": [
+         "es5",
+         "es6"
+      ],
       "target": "es5",
       "module": "commonjs",
       "moduleResolution": "node",
@@ -10,3 +13,27 @@
       "sourceMap": true
    }
 }
+
+/*
+{
+	"compilerOptions": {
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"strict": true,
+		"module": "commonjs",
+		"pretty": true,
+		"outDir": "dist",
+		"sourceMap": true,
+		"target": "es6",
+		"allowJs": true,
+		"baseUrl": ".",
+	},
+	"exclude": [
+		"node_modules"
+	]
+}
+*/

@@ -1,4 +1,11 @@
-import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany} from "typeorm";
+import {
+    Entity, 
+    PrimaryGeneratedColumn, 
+    Column, 
+    CreateDateColumn, 
+    UpdateDateColumn, 
+    OneToMany
+} from "typeorm";
 import { IsAlpha } from 'class-validator';
 
 import {User} from './User';
@@ -21,5 +28,4 @@ export class Group {
 
     @OneToMany(type => User, user => user.group)
     users: User[];
-
 }
