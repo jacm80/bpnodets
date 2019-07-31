@@ -1,23 +1,22 @@
 import {
-    Entity, 
+    Entity,
     PrimaryGeneratedColumn, 
     Column, 
     CreateDateColumn, 
     UpdateDateColumn, 
     OneToMany
 } from "typeorm";
-import { IsAlpha } from 'class-validator';
+import { Length } from 'class-validator';
 
-import {User} from './User';
+import { User } from "./User";
 
 @Entity()
 export class Group {
-
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    @IsAlpha()
+    @Length(3, 50)
     description: string;
 
     @CreateDateColumn()

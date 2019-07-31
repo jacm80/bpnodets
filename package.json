@@ -2,10 +2,13 @@
    "name": "bpnodets",
    "version": "0.0.1",
    "description": "NodeJS, TypeScript, Express & TypeORM",
+   "license": "MIT",
+   "readmeFilename": "README.md",
    "devDependencies": {
-      "@types/node": "^8.0.29",
-      "ts-node": "3.3.0",
-      "typescript": "3.3.3333"
+      "@types/body-parser": "^1.16.8",
+      "@types/express": "^4.11.1",
+      "@types/node": "^9.6.5",
+      "typescript": "^3.3.3333"
    },
    "dependencies": {
       "body-parser": "^1.19.0",
@@ -25,5 +28,9 @@
    },
    "scripts": {
       "start": "ts-node src/app/app.ts",
+      "build": "yarn clean && tsc",
+      "clean": "rm -rf build",
+      "prod": "node ./build/app/app.js",
+      "migration": "ts-node ./node_modules/typeorm/cli.js migration:run"
    }
 }
