@@ -1,8 +1,8 @@
 # bpNodeTs
 
-This boilerplate has the purpose of being taken as a reference for the creation of projects with typescript, NodeJS, express, typeORM, have all the configuration of the basic cases in any application such as the configuration of typeORM, express, auth 2.0 and the structure of folders with an organization of controllers, models, routes, environments, configuration and tests.
+This boilerplate has the purpose of being taken as a reference for the creation of projects with typescript, NodeJS, express, typeORM. It has all the configuration of the basic cases in any application such as the configuration of typeORM, express, auth 2.0 and the structure of folders with an organization of controllers, models, routes, environments, configuration and tests.
 
-I would appreciate any comments, the idea is to improve it and contribute to the community.
+I would appreciate any comments. The idea is to improve it and contribute to the community.
 
 You are free to use it, it has MIT license.
 
@@ -27,7 +27,7 @@ routes | configuration of application paths.
 
 # App Installation
 
-1. Download code from ropsitory 
+1. Download code from repository 
 2. install dependencies: npm install | yarn
 
 # Run app
