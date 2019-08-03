@@ -2,32 +2,28 @@
 # Dockerfile para la configuracion de bpnodets - NodeJS - TypeScript - Express - TypeORM 
 ########################################################################################
 # Imagen Base
-FROM alpine:3.1
-ENV PORT=4000
-
-# Metadata
-LABEL "cl.jacm.bpnodets"="jacm"
-LABEL maintainer="jacanepa@gmail.com"
-LABEL author="Juan A Canepa"
-LABEL version="1.0"
+FROM mhart/alpine-node:6.2.0
+ENV PORT=3000
 
 # Install dependencies
-RUN npm i pm2 -g
+RUN npm i pm2 -g && \
+    npm i yarn -g 
 
 # Select working directory
-WORKDIR /opt/bpnodets
-
-# Create environment file
-RUN cp example.env .env
+# RUN mkdir -p /home/bpnodets
+WORKDIR /home/bpnodets
 
 # Copy files to working directory
-ADD . /opt/bpnodets
+ADD . /home/bpnodets
+
+# Create environment file
+RUN cp example.env.production .env
 
 RUN npm install && \
     npm run-script build
 
-WORKDIR /home/misuraBackend
+#RUN ls /home/bpnodets/build
 
-EXPOSE 4000
+EXPOSE 3000
 
-CMD [ "pm2-runtime", "src/app/app.ts" ]
+CMD [ "pm2-runtime", "build/app/app.js" ]
