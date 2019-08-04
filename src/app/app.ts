@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv';
+import * as dotenv from 'custom-env';
 import * as express from 'express';
 import { createConnection } from 'typeorm';
 import * as http from 'http';
@@ -9,13 +9,15 @@ import * as cors from 'cors';
 import ensureAuthenticated from '../middlewares/jwtToken';
 import router from '../routes/v1';
 // import {User} from "../../src/entity/User";
-dotenv.config();
 
 const NODE_ENV: string = process.env.NODE_ENV || 'development';
 const cfg: any = require(`../../config/${NODE_ENV}`);
+dotenv.env(NODE_ENV);
+
+// console.log('process.env.TYPEORM_ENTITIES', process.env.TYPEORM_ENTITIES);
+// process.exit(0);
 
 const app: express.Application = express();
-
 const port: Number = cfg.port;
 
 app.use(express.static('public'));
@@ -49,5 +51,7 @@ createConnection().then(async connection => {
         console.log('API Server is listening on port:', port);
     });    
 }).catch(error => console.log(error));
+
+module.exports = server;
 
 

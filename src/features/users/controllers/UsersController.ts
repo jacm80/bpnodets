@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv';
+import * as dotenv from 'custom-env';
 import * as moment from 'moment';
 import * as jwt  from  'jwt-simple';
 import {Request, Response} from "express";
@@ -6,7 +6,8 @@ import {Request, Response} from "express";
 import { User } from "../../../entity/User";
 import UserDao from '../customRepository/UserRepository';
 
-dotenv.config();
+const NODE_ENV: string = process.env.NODE_ENV || 'development';
+dotenv.env(NODE_ENV);
 
 const userDao: UserDao = new UserDao();
 const TOKEN_SECRET: string = process.env.TOKEN_SECRET;

@@ -1,9 +1,10 @@
 import * as moment from 'moment';
 import * as jwt from 'jwt-simple';
-import * as dotenv from 'dotenv';
+import * as dotenv from 'custom-env';
 import { Request, Response, NextFunction } from "express";
 
-dotenv.config();
+const NODE_ENV: string = process.env.NODE_ENV || 'development';
+dotenv.env(NODE_ENV);
 
 const ensureAuthenticated = (req: Request, res: Response, next: NextFunction) => {
 	try {

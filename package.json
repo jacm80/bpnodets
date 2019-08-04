@@ -6,8 +6,17 @@
    "readmeFilename": "README.md",
    "devDependencies": {
       "@types/body-parser": "^1.16.8",
+      "@types/chai-http": "^4.2.0",
       "@types/express": "^4.11.1",
+      "@types/jest": "^24.0.16",
       "@types/node": "^9.6.5",
+      "@typescript-eslint/eslint-plugin": "^1.13.0",
+      "@typescript-eslint/parser": "^1.13.0",
+      "chai": "^4.2.0",
+      "chai-http": "^4.3.0",
+      "eslint": "^6.1.0",
+      "mocha": "^6.2.0",
+      "ts-node": "^8.3.0",
       "typescript": "^3.3.3333"
    },
    "dependencies": {
@@ -16,7 +25,7 @@
       "compression": "^1.7.4",
       "cors": "^2.8.5",
       "crypto": "^1.0.1",
-      "dotenv": "^8.0.0",
+      "custom-env": "^1.0.2",
       "express": "^4.17.1",
       "helmet": "^3.20.0",
       "http": "^0.0.0",
@@ -27,10 +36,11 @@
       "typeorm": "0.2.18"
    },
    "scripts": {
-      "start": "ts-node src/app/app.ts",
+      "start": "NODE_ENV=development ts-node src/app/app.ts",
+      "prod": "NODE_ENV=production node ./build/app/app.js",
+      "test": "NODE_ENV=test mocha -r ts-node/register src/tests/*.test.ts --exit",
       "build": "yarn clean && tsc",
       "clean": "rm -rf build",
-      "prod": "node ./build/app/app.js",
       "migration": "ts-node ./node_modules/typeorm/cli.js migration:run"
    }
 }
