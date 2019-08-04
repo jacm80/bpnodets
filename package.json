@@ -38,9 +38,9 @@
    "scripts": {
       "start": "NODE_ENV=development ts-node src/app/app.ts",
       "prod": "NODE_ENV=production node ./build/app/app.js",
-      "test": "NODE_ENV=test mocha -r ts-node/register src/tests/*.test.ts --exit",
+      "test": "clear && NODE_ENV=test mocha -r ts-node/register src/tests/*.test.ts --exit",
       "build": "yarn clean && tsc",
       "clean": "rm -rf build",
-      "migration": "ts-node ./node_modules/typeorm/cli.js migration:run"
+      "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"    
    }
 }
