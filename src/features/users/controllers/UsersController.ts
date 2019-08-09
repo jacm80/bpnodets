@@ -1,5 +1,5 @@
 import * as dotenv from 'custom-env';
-import * as moment from 'moment';
+import moment from 'moment';
 import * as jwt  from  'jwt-simple';
 import {Request, Response} from "express";
 

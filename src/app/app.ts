@@ -1,11 +1,11 @@
-import * as dotenv from 'custom-env';
-import * as express from 'express';
+import dotenv from 'custom-env';
+import express from "express";
 import { createConnection } from 'typeorm';
-import * as http from 'http';
-import * as helmet from 'helmet';
-import * as compression from 'compression';
-import * as bodyParser from 'body-parser';
-import * as cors from 'cors';
+import http from 'http';
+import helmet from 'helmet';
+import compression from 'compression';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 import ensureAuthenticated from '../middlewares/jwtToken';
 import router from '../routes/v1';
 // import {User} from "../../src/entity/User";
