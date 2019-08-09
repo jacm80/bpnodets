@@ -40,6 +40,7 @@
    },
    "scripts": {
       "start:test": "NODE_ENV=test ts-node src/app/app.ts",
+      "stop:test": "kill $(ps -A | grep -i app.ts | sed -e 'q' | cut -c1-5)",
       "start": "NODE_ENV=development ts-node src/app/app.ts",
       "prod": "NODE_ENV=production node ./build/app/app.js",
       "test": "clear && NODE_ENV=test mocha --timeout 10000 -r ts-node/register src/tests/*.test.ts --exit",
