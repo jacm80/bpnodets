@@ -4,9 +4,9 @@ pipeline {
         stage('test') {
             steps { 
                 echo 'execute test'
-                sh 'yarn start:test'
-                sh 'yarn test'
-                sh 'yarn stop:test'
+                sh 'npm run start:test'
+                sh 'npm run test'
+                sh 'npm run stop:test'
             }
         }
     }
