@@ -52,5 +52,4 @@ createConnection().then(async connection => {
     });    
 }).catch(error => console.log(error));
 
-module.exports = server;
-
+export default server;

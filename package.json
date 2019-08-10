@@ -6,8 +6,10 @@
    "readmeFilename": "README.md",
    "devDependencies": {
       "@types/body-parser": "^1.16.8",
+      "@types/chai": "^4.2.0",
       "@types/express": "^4.11.1",
       "@types/jest": "^24.0.16",
+      "@types/mocha": "^5.2.7",
       "@types/node": "^9.6.5",
       "@types/supertest": "^2.0.8",
       "@typescript-eslint/eslint-plugin": "^1.13.0",
@@ -43,7 +45,7 @@
       "stop:test": "kill $(ps -A | grep -i app.ts | sed -e 'q' | cut -c1-5)",
       "start": "NODE_ENV=development ts-node src/app/app.ts",
       "prod": "NODE_ENV=production node ./build/app/app.js",
-      "test": "clear && NODE_ENV=test mocha --timeout 10000 -r ts-node/register src/tests/*.test.ts --exit",
+      "test": "clear && NODE_ENV=test mocha --timeout 10000 -r ts-node/register src/tests/*.test.ts",
       "build": "yarn clean && tsc",
       "clean": "rm -rf build",
       "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"

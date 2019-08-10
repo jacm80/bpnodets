@@ -1,7 +1,7 @@
 import dotenv from 'custom-env';
 import chai from 'chai';
 import chaiHttp = require('chai-http');
-const app = require('../app/app');
+import { default as app } from '../app/app';
 
 const NODE_ENV: string = process.env.NODE_ENV || 'development';
 const cfg: any = require(`../../config/${NODE_ENV}`);
@@ -14,6 +14,11 @@ let _ID_USER = null;
 const credentials = { email: 'montenegrogerson@gmail.com', password: '123456' };
 
 describe('bpnodets Backend test controller UserController', () => {
+    
+    after(() => {
+        process.exit(0);
+    });
+    
     it('it should GET token', (done) => {
         chai.request(app)
             .post('/api/v1/authenticate')
