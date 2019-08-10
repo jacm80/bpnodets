@@ -1,6 +1,11 @@
+import dotenv from 'custom-env';
 import chai from 'chai';
 import chaiHttp = require('chai-http');
 const app = require('../app/app');
+
+const NODE_ENV: string = process.env.NODE_ENV || 'development';
+const cfg: any = require(`../../config/${NODE_ENV}`);
+dotenv.env(NODE_ENV);
 
 const should = chai.should();
 chai.use(chaiHttp);
