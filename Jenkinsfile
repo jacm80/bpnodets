@@ -2,17 +2,20 @@ pipeline {
     agent any
     tools {nodejs "node"}
     stages {
-        stage('upservertest') {
+        stage('Cloning Git') {
             steps { 
-                echo 'execute test'
+                git 'https://github.com/jacm80/bpnodets.git'
+            }
+        }
+        stage('Install Dependencies') {
+            steps { 
+                echo 'prepare dependencies'
                 sh 'npm install'
-                sh 'npm run start:test'
             }
         }
         stage('test') {
             steps{
                 sh 'npm run test'
-                sh 'npm run stop:test'
             }
         }
     }

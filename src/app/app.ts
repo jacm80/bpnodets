@@ -54,4 +54,3 @@ createConnection().then(async connection => {
 
 module.exports = server;
 
-
