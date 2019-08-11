@@ -3,8 +3,7 @@
 ########################################################################################
 # Imagen Base
 FROM mhart/alpine-node:12
-ENV NODE_ENV=production
-ENV PORT=3000
+ENV NODE_ENV=test
 
 # Install dependencies
 RUN npm update && \
@@ -12,8 +11,7 @@ RUN npm update && \
     npm i mocha -g && \
     npm i chai -g && \
     npm i typescript -g \
-    npm i ts-node -g \
-    npm i pm2 -g
+    npm i ts-node -g
 
 WORKDIR /home/bpnodets
 
@@ -21,9 +19,8 @@ WORKDIR /home/bpnodets
 ADD . /home/bpnodets
 
 RUN yarn 
-
 RUN env
+# Create environment file
+# RUN cp .env.test .env
 
-EXPOSE 3000:3000
-
-CMD [ "pm2-runtime", "build/app/app.js" ]
+CMD ["mocha", "-r", "ts-node/register", "src/tests/*.test.ts"]

@@ -1,0 +1,14 @@
+# The docker-compose DSL syntax format we're using
+version: "3"
+# The containers we want to start and the images to start
+# them from
+services:
+  # our basic node server we'll name "basic"
+  bpnodets: 
+    # the directory path - relative to this compose file - where
+    # we'll be able to find the Dockerfile
+    build: .
+    # the port mappings we do so that traffic that docker
+    # will forward from localhost -> container
+    ports:
+      - "3000:3000"

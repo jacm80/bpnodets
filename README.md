@@ -34,4 +34,27 @@ routes | configuration of application paths.
 
 * yarn start | npm run start 
 
-...
+# Docker build
+
+docker build -t bpnodets-production -f Dockerfile .
+
+# Docker test 
+
+docker build -t bpnodets-test -f Dockerfile.test .
+docker run --rm bpnodets-test:latest
+
+# Docker production
+
+docker build -t bpnodets:latest -f Dockerfile .
+docker run -d -p 3000:3000 --name apitest bpnodets:latest
+
+or 
+
+docker-compose up
+
+# TODO List
+
+- [x] Dockerize app for prodcution
+- [x] create jenkins pipeline
+- [ ] Dockerize app for testing
+- [ ] finish jenkins pipeline
