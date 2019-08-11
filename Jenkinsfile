@@ -2,20 +2,16 @@ pipeline {
     agent any
     tools {nodejs "node"}
     stages {
-        // stage('Cloning Git') {
-        //     steps { 
-        //         git 'https://github.com/jacm80/bpnodets.git'
-        //     }
-        // }
         stage('Install Dependencies') {
             steps { 
                 echo 'prepare dependencies'
-                sh 'npm install'
+                sh "npm install -g yarn"
+                sh "yarn install"
             }
         }
         stage('test') {
             steps{
-                sh 'npm run test'
+                sh 'yarn run test'
             }
         }
     }
