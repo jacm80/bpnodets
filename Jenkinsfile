@@ -6,6 +6,7 @@ pipeline {
             steps { 
                 echo 'prepare dependencies'
                 sh "npm install -g yarn"
+                sh "npm install -g mocha"
                 sh "yarn install"
             }
         }
